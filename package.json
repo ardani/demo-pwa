@@ -1,0 +1,26 @@
+{
+  "name": "techtalk-pwa",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "image-capture": "^0.3.4",
+    "onsenui": "^2.6.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-onsenui": "^1.6.0",
+    "react-scripts": "1.0.13",
+    "react-webcam": "^0.2.0"
+  },
+  "homepage": "http://ardani.github.io/demo-pwa",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.0.0"
+  }
+}
