@@ -3,11 +3,11 @@ import { Page } from 'react-onsenui';
 import MyToolbar from '../components/Toolbar';
 
 const DefaultPage = (ComposedComponent) => class extends Component {
-  render() {
+  render () {
     return (
-    <Page renderToolbar={() => <MyToolbar {...this.props} />}>
-      <ComposedComponent {...this.props} />
-    </Page>
+      <Page renderToolbar={() => <MyToolbar {...this.props} />}>
+        <ComposedComponent {...this.props} />
+      </Page>
     )
   }
 }

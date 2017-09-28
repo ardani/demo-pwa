@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Page, Tabbar, Tab} from 'react-onsenui';
+import { Page, Tabbar, Tab } from 'react-onsenui';
 import VibratePage from './Vibrate';
 import TakePicturePage from './TakePicture';
 import Quote from './Quotes';
 
 class Home extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       index: 0
@@ -13,45 +13,45 @@ class Home extends Component {
     this.renderTabs = this.renderTabs.bind(this);
   }
 
-  renderTabs(activeIndex, tabbar) {
+  renderTabs (activeIndex, tabbar) {
     return [
       {
         content: <VibratePage
           key='0'
           title='Vibrate Test'
           active={activeIndex === 0}
-          tabbar={tabbar} />,
+          tabbar={tabbar}/>,
         tab: <Tab
           key='0'
           label='Vibrate'
-          icon='md-vibration' />
+          icon='md-vibration'/>
       },
       {
         content: <TakePicturePage
           key='1'
           title='Take Picture'
           active={activeIndex === 1}
-          tabbar={tabbar} />,
+          tabbar={tabbar}/>,
         tab: <Tab
           key='1'
           label='Take Picture'
-          icon='md-camera-add' />
+          icon='md-camera-add'/>
       },
       {
         content: <Quote
           key='2'
           title='Quote'
           active={activeIndex === 2}
-          tabbar={tabbar} />,
+          tabbar={tabbar}/>,
         tab: <Tab
           key='2'
           label='Quote'
-          icon='md-quote' />
+          icon='md-quote'/>
       }
     ];
   }
 
-  render() {
+  render () {
     return (
       <Page>
         <Tabbar

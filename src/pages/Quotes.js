@@ -4,20 +4,20 @@ import DefaultPage from './Default';
 import { Button, Card } from 'react-onsenui';
 
 class Quotes extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-        qoutes: [],
-        isOnline: true,
-        message: null
+      qoutes: [],
+      isOnline: true,
+      message: null
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getQuote();
   }
 
-  getQuote() {
+  getQuote () {
     const url = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=4&_=' + new Date().getTime();
     axios.get(url)
     .then((response) => {
@@ -29,13 +29,13 @@ class Quotes extends Component {
     });
   }
 
-  strip(html) {
+  strip (html) {
     const tmp = document.createElement('DIV');
     tmp.innerHTML = html;
     return tmp.textContent || tmp.innerText || '';
   }
 
-  render() {
+  render () {
     const qoutes = this.state.qoutes;
     const isOnline = this.state.isOnline;
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Page } from 'react-onsenui';
 
 export default class extends Component {
-  render() {
+  render () {
     return (
       <Page>
         <section style={{margin: '16px'}}>
