@@ -8,7 +8,7 @@ class Quotes extends Component {
     super(props)
     this.state = {
       qoutes: [],
-      isOnline: true,
+      isError: false,
       message: null
     }
   }
@@ -18,13 +18,13 @@ class Quotes extends Component {
   }
 
   getQuote () {
-    const url = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=4&_=' + new Date().getTime();
+    const url = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=4&_=' + new Date().getTime();
     axios.get(url)
     .then((response) => {
       this.setState({qoutes: response.data});
     })
     .catch((error) => {
-      this.setState({message: 'Fail Get Quote Today !!'})
+      this.setState({message: 'Fail Get Quote Today !!', isError: true})
       console.log(error);
     });
   }
@@ -37,13 +37,12 @@ class Quotes extends Component {
 
   render () {
     const qoutes = this.state.qoutes;
-    const isOnline = this.state.isOnline;
+    const isError = this.state.isError;
 
     return (
       <section style={{margin: '16px'}}>
         {this.state.message && <p>{this.state.message}</p>}
-        {!isOnline && <p>You look offline now</p>}
-        {isOnline && qoutes.map((data) => {
+        {!isError && qoutes.map((data) => {
           return (<Card>
             <div className='title'>
               {data.title}
