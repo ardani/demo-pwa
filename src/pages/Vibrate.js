@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Page, Button } from 'react-onsenui';
-import MyToolbar from '../components/Toolbar';
+import { Button } from 'react-onsenui';
+import DefaultPage from "./Default";
 
-export default class extends Component {
+class Vibrate extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,13 +23,13 @@ export default class extends Component {
 
     render() {
         return (
-        <Page renderToolbar={() => <MyToolbar title={this.props.title} />} >
          <section style={{margin: '16px'}}>
             <p style={{textAlign: 'center'}}>
                 <Button onClick={(e) => this.doVibrate()} style={this.buttonStyle} modifier='large'>Vibrate {this.state.isVibrate ? 'OFF' : 'ON'}</Button>
             </p>
         </section>
-        </Page>
         )
     }
 }
+
+export default DefaultPage(Vibrate);

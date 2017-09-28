@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Page, Button } from 'react-onsenui';
-import MyToolbar from '../components/Toolbar';
+import { Button } from 'react-onsenui';
 import Webcam from 'react-webcam';
+import DefaultPage from "./Default";
 
-export default class extends Component {
+class TakePicture extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -19,7 +19,7 @@ export default class extends Component {
     setRef = (webcam) => {
         this.webcam = webcam;
     }
-    
+
     capture = () => {
         const imageSrc = this.webcam.getScreenshot();
         this.setState({imageSrc: imageSrc});
@@ -34,7 +34,7 @@ export default class extends Component {
                     ref={this.setRef}
                     screenshotFormat="image/jpeg"
                     width='100%' />
-                <img width='100%' height='350' src={this.state.imageSrc} />
+                <img alt="capture" width='100%' height='350' src={this.state.imageSrc} />
                 <Button style={{margin: '10px'}} onClick={this.capture}>Capture photo</Button>
                 <Button style={{margin: '10px'}} onClick={() => {this.setState({enableVideo: false})}}>Disable Webcam</Button>
             </div>
@@ -42,16 +42,16 @@ export default class extends Component {
             return <p style={{textAlign: 'center'}}>
                 <Button modifier='large' style={this.buttonStyle} onClick={() => {this.setState({enableVideo: true})}}>Enable Webcam</Button>
             </p>
-        }   
+        }
     }
 
     render() {
         return (
-        <Page renderToolbar={() => <MyToolbar title={this.props.title} />} >
             <section style={{margin: '16px'}}>
                 {this.renderWebcam()}
             </section>
-        </Page>
         )
     }
 }
+
+export default DefaultPage(TakePicture);
